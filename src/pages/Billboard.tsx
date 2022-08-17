@@ -2,10 +2,11 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import statusValidate from '../components/statusValidate'
+import { BaseURL } from '../constant'
 
 function Billboard() {
   const { status, data, error } = useQuery(['billboards'], async () => {
-    const { data } = await axios.get('http://localhost:3000/api/billboards')
+    const { data } = await axios.get(`${BaseURL}/api/billboards`)
     return data
   })
 
@@ -97,7 +98,7 @@ function Billboard() {
                     </Link>
                   </th>
                   <td className="py-4 px-6">
-                    {statusValidate(billboard.isActive)}
+                    {statusValidate(billboard.status)}
                   </td>
                 </tr>
               ))}

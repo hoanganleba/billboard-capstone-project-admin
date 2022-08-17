@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import statusValidate from '../components/statusValidate'
+import { BaseURL } from '../constant'
 
 function BillboardDetail() {
   const { billboardId } = useParams()
@@ -9,14 +10,14 @@ function BillboardDetail() {
     ['billboard'],
     async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/api/billboards/${billboardId}`
+        `${BaseURL}/api/billboards/${billboardId}`
       )
       return data
     },
   )
-  const handleApproveBillboard = async (isApproved: boolean) => {
-    await axios.patch(`http://localhost:3000/api/billboards/${billboardId}`, {
-      isActive: isApproved,
+  const handleApproveBillboard = async (status: string) => {
+    await axios.patch(`${BaseURL}/api/billboards/${billboardId}`, {
+      status
     })
     refetch()
   }
@@ -48,18 +49,18 @@ function BillboardDetail() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl dark:text-white mb-2">{data.name}</h1>
-            <p>{statusValidate(data.isActive)}</p>
+            <p>{statusValidate(data.status)}</p>
           </div>
           <div className="flex space-x-2 items-center">
             <button
-              onClick={() => handleApproveBillboard(false)}
+              onClick={() => handleApproveBillboard('rejected')}
               type="button"
               className="py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
             >
               Reject
             </button>
             <button
-              onClick={() => handleApproveBillboard(true)}
+              onClick={() => handleApproveBillboard('approved')}
               type="button"
               className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >

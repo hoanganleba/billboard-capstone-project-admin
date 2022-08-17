@@ -13,7 +13,7 @@ function ProtectedLayout() {
 
   return (
     <>
-      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 dark:border-gray-700">
+      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 dark:border-gray-700 sticky top-0 z-10">
         <div className="flex flex-wrap justify-end items-center ml-64 mr-12">
           <div className="relative flex items-center md:order-2">
             <button

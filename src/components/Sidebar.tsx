@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-function Sidebar() {
+const Sidebar = () => {
   return (
-    <aside className="w-64 absolute left-0 inset-y-0" aria-label="Sidebar">
+    <aside className="w-64 fixed left-0 inset-y-0 z-20" aria-label="Sidebar">
       <div className="overflow-y-auto py-4 px-3 bg-gray-50 h-full dark:bg-gray-800">
         <ul className="space-y-2">
           <li>
