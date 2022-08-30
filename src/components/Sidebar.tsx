@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import CloudboardLogo from '../assets/cloudboard_logo.svg'
+import CloudboardLogo from '../assets/cloudboard_full_logo.svg'
 
 const Sidebar = () => {
     return (
