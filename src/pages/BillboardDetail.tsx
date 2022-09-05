@@ -78,11 +78,12 @@ function BillboardDetail() {
                     </div>
                     <div className="bg-white mt-4 py-4 px-6 rounded-lg">
                         <div className={'font-bold text-xl mb-2'}>Details</div>
+
                         <div className={'flex flex-row'}>
-                            <div className={'flex mx-auto justify-center w-full'}>
-                                <img className={'w-1/2'} src={data.imageUrl} alt="billboard photo"/>
+                            <div className={'flex justify-center p-24'}>
+                                <img className={'w-full'} src={data.imageUrl} alt="billboard photo"/>
                             </div>
-                            <div>
+                            <div className={'w-3/4'}>
                                 <div>
                                     <div className={'font-bold'}>Title:</div>
                                     <div>{data.name}</div>
