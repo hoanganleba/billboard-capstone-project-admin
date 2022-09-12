@@ -2,7 +2,7 @@ import {useQuery} from '@tanstack/react-query'
 import axios from 'axios'
 import {Link, Route, Routes, useParams, useRoutes} from 'react-router-dom'
 import statusValidate from '../components/statusValidate'
-import {BaseURL} from '../constant'
+import {BASE_URL} from '../constant'
 
 function BillboardDetail() {
     const {billboardId} = useParams()
@@ -10,13 +10,13 @@ function BillboardDetail() {
         ['billboard'],
         async () => {
             const {data} = await axios.get(
-                `${BaseURL}/api/billboards/${billboardId}`
+                `${BASE_URL}/api/billboards/${billboardId}`
             )
             return data
         },
     )
     const handleApproveBillboard = async (status: string) => {
-        await axios.patch(`${BaseURL}/api/billboards/${billboardId}`, {
+        await axios.patch(`${BASE_URL}/api/billboards/${billboardId}`, {
             status
         })
         refetch()

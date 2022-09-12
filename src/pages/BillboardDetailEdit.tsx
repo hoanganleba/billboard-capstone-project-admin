@@ -2,7 +2,7 @@ import {useQuery} from '@tanstack/react-query'
 import axios from 'axios'
 import {useNavigate, useParams} from 'react-router-dom'
 import statusValidate from '../components/statusValidate'
-import {BaseURL} from '../constant'
+import {BASE_URL} from '../constant'
 
 const BillboardDetailEdit = () => {
     const navigate = useNavigate()
@@ -11,13 +11,13 @@ const BillboardDetailEdit = () => {
         ['billboard'],
         async () => {
             const {data} = await axios.get(
-                `${BaseURL}/api/billboards/${billboardId}`
+                `${BASE_URL}/api/billboards/${billboardId}`
             )
             return data
         },
     )
     const handleEditCompletedBillboard = async () => {
-        await axios.patch(`${BaseURL}/api/billboards/${billboardId}`, {
+        await axios.patch(`${BASE_URL}/api/billboards/${billboardId}`, {
             // wait
         })
         refetch()

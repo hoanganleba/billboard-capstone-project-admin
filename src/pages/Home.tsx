@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { BaseURL } from '../constant'
+import { BASE_URL } from '../constant'
 
 function Home() {
   const { status, data, error } = useQuery(['billboards'], async () => {
-    const { data } = await axios.get(`${BaseURL}/api/billboards`)
+    const { data } = await axios.get(`${BASE_URL}/api/billboards`)
     return data
   })
 
